@@ -132,7 +132,8 @@ research holder datum.
 /*
 /datum/research/proc/generate_integrated_circuit_designs()
 	spawn(2 SECONDS) // So the list has time to initialize.
-		for(var/obj/item/integrated_circuit/IC in all_integrated_circuits)
+		for(var/typepath in SScircuit.cached_components)
+			var/obj/item/integrated_circuit/IC = SScircuit.cached_components[typepath]
 			if(IC.spawn_flags & IC_SPAWN_RESEARCH)
 				var/datum/design/D = new /datum/design/circuit(src)
 				D.name = "Custom circuitry \[[IC.category_text]\] ([IC.name])"

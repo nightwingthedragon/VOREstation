@@ -36,12 +36,6 @@
 // Data limits.
 #define IC_MAX_LIST_LENGTH			200
 
-var/list/all_integrated_circuits = list()
-
-/proc/initialize_integrated_circuits_list()
-	for(var/thing in typesof(/obj/item/integrated_circuit))
-		all_integrated_circuits += new thing()
-
 /obj/item/integrated_circuit
 	name = "integrated circuit"
 	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
